@@ -24,10 +24,16 @@ const Upload: React.FC<UploadProps> = ({ onUpload }: UploadProps) => {
 
     return <UploadMessage type="success">Solte o arquivo aqui</UploadMessage>;
   }
+  // const handleChangeStatus = ({ meta }, status) => { // eslint-disable-line
+  //   console.log(status, meta);
+  // };
 
   return (
     <>
-      <Dropzone accept="text/csv" onDropAccepted={(files) => onUpload(files)}>
+      <Dropzone
+        onDropAccepted={files => onUpload(files)}
+        // onChangeStatus={handleChangeStatus}
+      >
         {({ getRootProps, getInputProps, isDragActive, isDragReject }): any => (
           <DropContainer
             {...getRootProps()}
